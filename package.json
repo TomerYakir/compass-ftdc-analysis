@@ -1,8 +1,8 @@
 {
-  "name": "@mongodb-js/compass-cluster-health",
-  "productName": "Cluster Health",
-  "version": "0.2.1",
-  "description": "Sharded cluster balancing health.",
+  "name": "@mongodb-js/compass-ftdc-analysis",
+  "productName": "Compass FTDC Analysis Plugin",
+  "version": "0.0.1",
+  "description": "FTDC anomaly and correlation analysis",
   "main": "lib/index.js",
   "homepage": "https://compass.mongodb.com",
   "license": "Apache-2.0",
@@ -37,19 +37,24 @@
     "prepublish": "npm run compile",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
-  "precommit": [
-    
-  ],
+  "precommit": [],
   "dependencies": {
     "bootstrap": "https://github.com/twbs/bootstrap/archive/v3.3.5.tar.gz",
     "canvas": "^1.6.7",
+    "hadron-react-components": "^1.9.1",
     "highlight.js": "^9.12.0",
+    "jquery": "^3.2.1",
     "mongodb-data-service": "^8.2.0",
     "node-loader": "^0.6.0",
+    "react": "^15.5.4",
     "react-bootstrap": "^0.31.3",
+    "react-dom": "^15.5.4",
     "react-fontawesome": "^1.6.1",
     "react-vega": "^3.1.1",
     "react-vega-lite": "^1.1.2",
+    "reflux": "^0.4.1",
+    "reflux-state-mixin": "^0.7.0",
+    "url-loader": "^0.6.2",
     "vega": "^3.0.6",
     "vega-lite": "^2.0.0-rc4"
   },

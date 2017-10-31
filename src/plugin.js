@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { StoreConnector } from 'hadron-react-components';
-import ClusterHealth from 'components/cluster-health';
-import ClusterHealthStore from 'stores/cluster-health-store';
+import FTDCAnalysis from 'components/ftdc-analysis';
+import FTDCAnalysisStore from 'stores/ftdc-analysis-store';
 import 'bootstrap/dist/css/bootstrap.css';
 import Actions from 'actions';
 
-class ClusterHealthPlugin extends Component {
-  static displayName = 'ClusterHealthPlugin';
+class FTDCAnalysisPlugin extends Component {
+  static displayName = 'FTDCAnalysisPlugin';
 
   /**
    * Connect the Plugin to the store and render.
@@ -15,12 +15,12 @@ class ClusterHealthPlugin extends Component {
    */
   render() {
     return (
-      <StoreConnector store={ClusterHealthStore}>
-        <ClusterHealth actions={Actions} {...this.props} />
+      <StoreConnector store={FTDCAnalysisStore}>
+        <FTDCAnalysis actions={Actions} {...this.props} />
       </StoreConnector>
     );
   }
 }
 
-export default ClusterHealthPlugin;
+export default FTDCAnalysisPlugin;
 export { Plugin };

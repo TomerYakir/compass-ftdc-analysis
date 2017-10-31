@@ -1,7 +1,8 @@
 import Reflux from 'reflux';
 
 const Actions = Reflux.createActions([
-  'refresh'
+  'refresh',
+  'checkMetric'
 ]);
 
 export default Actions;

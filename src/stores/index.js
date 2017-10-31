@@ -1,5 +1,5 @@
-import ClusterHealthStore from './cluster-health-store';
+import FTDCAnalysisStore from './ftdc-analysis-store';
 
 export {
-  ClusterHealthStore
+  FTDCAnalysisStore
 };
