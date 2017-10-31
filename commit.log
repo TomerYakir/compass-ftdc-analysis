@@ -1,0 +1,162 @@
+Checking for potential errors…
+Use the --debug flag to print diagnostic info
+For more info, please see https://github.com/mongodb-js/precommit 
+
+  › Checking for dependencies used in code but not added to package.json…
+  ✖  1 dependencies|devDependencies missing from package.json
+  › Checking for dependencies in package.json not used in code…
+  ✖  2 dependencies in package.json are not used in code
+  › Running eslint on 21 files…
+  ✖ 113  eslint errors detected
+
+✖ 3 of 3 check(s) failed:
+  1 dependencies|devDependencies missing from package.json
+      You can correct this error by running:
+          npm install --save !!..;
+      
+      Please see the configuration docs for more info:
+      https://github.com/mongodb-js/precommit#configuration
+  2 dependencies in package.json are not used in code
+      You can correct this error by running:
+          npm uninstall --save mongodb-data-service react-dom;
+      
+      Please see the configuration docs for more info:
+      https://github.com/mongodb-js/precommit#configuration
+  Please fix the 113 error(s) below.
+      
+      
+      /Users/tomeryakir/.mongodb/compass/plugins/compass-cluster-health/src/components/cluster-health/shard-collections-list.jsx
+        26:12  error  Unnecessary 'else' after 'return'  no-else-return
+      
+      /Users/tomeryakir/.mongodb/compass/plugins/compass-cluster-health/src/components/cluster-health/shard-overview.jsx
+        52:12  error  Unnecessary 'else' after 'return'  no-else-return
+      
+      /Users/tomeryakir/.mongodb/compass/plugins/compass-cluster-health/src/stores/cluster-health-store.js
+         60:7    warning  Unexpected console statement                                                                                no-console
+         60:50   error    Missing semicolon                                                                                           semi
+         72:16   error    'Promise' is not defined                                                                                    no-undef
+         75:36   error    'reject' is defined but never used                                                                          no-unused-vars
+         86:67   error    Expected error to be handled                                                                                handle-callback-err
+         87:7    error    Expected an assignment or function call and instead saw an expression                                       no-unused-expressions
+         87:24   error    Expected '===' and instead saw '=='                                                                         eqeqeq
+         92:43   error    'reject' is defined but never used                                                                          no-unused-vars
+        102:64   error    Expected error to be handled                                                                                handle-callback-err
+        103:7    error    Expected an assignment or function call and instead saw an expression                                       no-unused-expressions
+        105:51   error    ["who"] is better written in dot notation                                                                   dot-notation
+        106:53   error    ["when"] is better written in dot notation                                                                  dot-notation
+        106:62   error    Expected exception block, space or tab after '//' in comment                                                spaced-comment
+        107:52   error    ["why"] is better written in dot notation                                                                   dot-notation
+        113:46   error    'reject' is defined but never used                                                                          no-unused-vars
+        114:37   error    A space is required after ','                                                                               comma-spacing
+        114:39   error    Extra space after key 'balancerStatus'                                                                      key-spacing
+        114:58   error    A space is required after ','                                                                               comma-spacing
+        114:59   error    Expected error to be handled                                                                                handle-callback-err
+        115:7    error    Expected an assignment or function call and instead saw an expression                                       no-unused-expressions
+        115:81   warning  Unexpected console statement                                                                                no-console
+        117:7    error    Missing semicolon                                                                                           semi
+        120:35   error    'reject' is defined but never used                                                                          no-unused-vars
+        121:5    error    'Promise' is not defined                                                                                    no-undef
+        127:7    error    Missing semicolon                                                                                           semi
+        130:36   error    'reject' is defined but never used                                                                          no-unused-vars
+        133:11   error    'sort' is assigned a value but never used                                                                   no-unused-vars
+        134:11   error    'limit' is assigned a value but never used                                                                  no-unused-vars
+        135:11   error    'project' is assigned a value but never used                                                                no-unused-vars
+        144:60   error    Expected error to be handled                                                                                handle-callback-err
+        145:28   error    Missing semicolon                                                                                           semi
+        146:7    error    The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+        146:12   error    Unexpected var, use let or const instead                                                                    no-var
+        148:35   error    ["_id"] is better written in dot notation                                                                   dot-notation
+        149:27   error    ["host"] is better written in dot notation                                                                  dot-notation
+        152:10   error    Missing semicolon                                                                                           semi
+        159:38   error    'reject' is defined but never used                                                                          no-unused-vars
+        161:33   error    A space is required after ','                                                                               comma-spacing
+        161:35   error    Extra space after key 'dbStats'                                                                             key-spacing
+        161:63   error    A space is required after ','                                                                               comma-spacing
+        161:64   error    Expected error to be handled                                                                                handle-callback-err
+        162:7    error    The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+        162:12   error    Unexpected var, use let or const instead                                                                    no-var
+        162:33   error    ["raw"] is better written in dot notation                                                                   dot-notation
+        163:34   error    ["raw"] is better written in dot notation                                                                   dot-notation
+        167:33   error    ["databaseSizes"] is better written in dot notation                                                         dot-notation
+        172:3    error    Block must not be padded by blank lines                                                                     padded-blocks
+        174:31   error    'reject' is defined but never used                                                                          no-unused-vars
+        177:11   error    'limit' is assigned a value but never used                                                                  no-unused-vars
+        178:11   error    'project' is assigned a value but never used                                                                no-unused-vars
+        186:60   error    Expected error to be handled                                                                                handle-callback-err
+        187:11   error    'shardSizePromises' is never reassigned. Use 'const' instead                                                prefer-const
+        188:7    error    The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+        189:93   error    ["_id"] is better written in dot notation                                                                   dot-notation
+        189:101  error    Missing semicolon                                                                                           semi
+        190:9    error    'Promise' is not defined                                                                                    no-undef
+        193:8    error    Missing semicolon                                                                                           semi
+        194:5    error    Expected indentation of 6 spaces but found 4                                                                indent
+        196:3    error    Block must not be padded by blank lines                                                                     padded-blocks
+        196:3    error    Expected indentation of 4 spaces but found 2                                                                indent
+        197:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        199:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        199:38   error    'reject' is defined but never used                                                                          no-unused-vars
+        204:9    error    The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+        205:15   error    'shardSize' is never reassigned. Use 'const' instead                                                        prefer-const
+        205:123  error    Missing semicolon                                                                                           semi
+        210:72   error    Missing semicolon                                                                                           semi
+        212:9    error    Missing semicolon                                                                                           semi
+        214:4    error    Missing semicolon                                                                                           semi
+        217:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        217:46   error    'reject' is defined but never used                                                                          no-unused-vars
+        218:48   error    ["name"] is better written in dot notation                                                                  dot-notation
+        218:57   error    Expected error to be handled                                                                                handle-callback-err
+        219:9    error    'shardDistribution' is never reassigned. Use 'const' instead                                                prefer-const
+        220:5    error    The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+        220:10   error    Unexpected var, use let or const instead                                                                    no-var
+        220:30   error    ["shards"] is better written in dot notation                                                                dot-notation
+        221:31   error    ["shards"] is better written in dot notation                                                                dot-notation
+        224:26   error    ["estimatedDataPercent"] is better written in dot notation                                                  dot-notation
+        225:30   error    ["avgObjSize"] is better written in dot notation                                                            dot-notation
+        226:25   error    ["count"] is better written in dot notation                                                                 dot-notation
+        227:41   error    ["estimatedDataPerChunk"] is better written in dot notation                                                 dot-notation
+        228:39   error    ["estimatedDocPercent"] is better written in dot notation                                                   dot-notation
+        229:41   error    ["estimatedDocsPerChunk"] is better written in dot notation                                                 dot-notation
+        232:34   error    ["_id"] is better written in dot notation                                                                   dot-notation
+        232:42   error    ["chunkDistribution"] is better written in dot notation                                                     dot-notation
+        237:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        237:34   error    'reject' is defined but never used                                                                          no-unused-vars
+        242:20   error    Extra space after key 'lastmodEpoc'                                                                         key-spacing
+        242:39   error    Extra space after key 'lastmod'                                                                             key-spacing
+        242:53   error    Missing semicolon                                                                                           semi
+        249:58   error    Expected error to be handled                                                                                handle-callback-err
+        252:9    error    'collDistPromises' is never reassigned. Use 'const' instead                                                 prefer-const
+        253:5    error    The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype  guard-for-in
+        254:13   error    'collection' is already declared in the upper scope                                                         no-shadow
+        256:28   error    ["_id"] is better written in dot notation                                                                   dot-notation
+        257:47   error    ["key"] is better written in dot notation                                                                   dot-notation
+        259:8    error    Missing semicolon                                                                                           semi
+        261:94   error    Missing semicolon                                                                                           semi
+        263:5    error    'Promise' is not defined                                                                                    no-undef
+        266:4    error    Missing semicolon                                                                                           semi
+        267:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        270:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        270:35   error    'reject' is defined but never used                                                                          no-unused-vars
+        273:5    error    Missing semicolon                                                                                           semi
+        276:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        280:5    warning  Unexpected console statement                                                                                no-console
+        280:32   error    Missing semicolon                                                                                           semi
+        281:5    error    'Promise' is not defined                                                                                    no-undef
+        286:7    warning  Unexpected console statement                                                                                no-console
+        286:33   error    Missing semicolon                                                                                           semi
+        287:31   error    Missing semicolon                                                                                           semi
+        288:7    error    Missing semicolon                                                                                           semi
+        292:1    error    Expected indentation of 2 spaces but found 0                                                                indent
+        404:4    error    Missing semicolon                                                                                           semi
+      
+      ✖ 117 problems (113 errors, 4 warnings)
+      
+
+pre-commit: 
+pre-commit: We've failed to pass the specified git pre-commit hooks as the `check`
+pre-commit: hook returned an exit code (1). If you're feeling adventurous you can
+pre-commit: skip the git pre-commit hooks by adding the following flags to your commit:
+pre-commit: 
+pre-commit:   git commit -n (or --no-verify)
+pre-commit: 
+pre-commit: This is ill-advised since the commit is broken.
+pre-commit: 
