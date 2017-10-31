@@ -13,7 +13,9 @@ const FTDCAnalysisStore = Reflux.createStore({
   mockup: true,
   compass: false,
   INIT_STATE: {
-    "metrics": {}
+    "metrics": {},
+    "correlations": [],
+    "selectedMetrics": []
   },
 
   refresh() {
@@ -31,6 +33,7 @@ const FTDCAnalysisStore = Reflux.createStore({
       return this.data;
     }
     this.loadData = this.loadData.bind(this);
+    this.selectCorrelations = this.selectCorrelations.bind(this);
     if (this.compass) {
         // get data from the python server
     }
@@ -55,6 +58,21 @@ const FTDCAnalysisStore = Reflux.createStore({
     });
   },
 
+  selectCorrelations(arr) {
+    if (JSON.stringify(arr) != JSON.stringify(this.data.selectedMetrics)) {
+      for (const metric in this.data.metrics) {
+        const metricObj = this.data.metrics[metric];
+        metricObj.checked = false;
+      }
+      for (const val in arr) {
+        this.data.metrics[arr[val]].checked = true;
+      }
+      this.data.selectedMetrics = arr;
+      this.setState(this.data);
+      this.trigger(this.state);
+    }
+  },
+
   checkMetric(metric) {
     this.data.metrics[metric].checked = !this.data.metrics[metric].checked
     console.log("checked: " + this.data.metrics[metric].checked);
@@ -65,9 +83,9 @@ const FTDCAnalysisStore = Reflux.createStore({
   getMockProps() {
     return {
       "metrics": {
-        "serverStatus.globalLock.currentQueue.writers": {
+        "A": {
           "displayName": "server_queued_writers",
-          "heatMapCode": "A",
+          "fullName": "serverStatus.globalLock.currentQueue.writers",
           "checked": false,
           "mean": 0.3,
           "min": 0,
@@ -88,9 +106,9 @@ const FTDCAnalysisStore = Reflux.createStore({
                 "value": 3, "type": "normal"}
           ]
         },
-        "serverStatus.globalLock.currentQueue.readers": {
+        "B": {
           "displayName": "server_queued_readers",
-          "heatMapCode": "B",
+          "fullName": "serverStatus.globalLock.currentQueue.readers",
           "checked": false,
           "mean": 0.6,
           "min": 0,
@@ -111,9 +129,9 @@ const FTDCAnalysisStore = Reflux.createStore({
                 "value": 0, "type": "normal"}
           ]
         },
-        "serverStatus.wiredTiger.cache.bytes currently in the cache": {
+        "C": {
           "displayName": "server_cache_bytes",
-          "heatMapCode": "C",
+          "fullName": "serverStatus.wiredTiger.cache.bytes currently in the cache",
           "checked": false,
           "mean": 1024,
           "min": 700,
@@ -134,9 +152,9 @@ const FTDCAnalysisStore = Reflux.createStore({
                 "value": 700, "type": "normal"}
           ]
         },
-        "serverStatus.opcounters.insert": {
+        "D": {
           "displayName": "inserts_per_sec",
-          "heatMapCode": "D",
+          "fullName": "serverStatus.opcounters.insert",
           "checked": false,
           "mean": 1300,
           "min": 100,
@@ -165,7 +183,8 @@ const FTDCAnalysisStore = Reflux.createStore({
         {"MetricOne": "B", "MetricTwo": "C", "Score": 0.1},
         {"MetricOne": "B", "MetricTwo": "D", "Score": 0.3},
         {"MetricOne": "C", "MetricTwo": "D", "Score": 0.9},
-      ]
+      ],
+      "selectedMetrics": []
     };
   }
 });

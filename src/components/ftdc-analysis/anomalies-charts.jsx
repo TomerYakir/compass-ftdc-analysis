@@ -17,7 +17,7 @@ class AnomaliesCharts extends Component {
         return (
           <div key={metric} className="row" >
             <div className="col-md-12">
-              <span><strong>{metric}</strong></span>
+              <span><strong>{metricObj.fullName}</strong></span>
               <span className="pull-right">Mean: {metricObj.mean}, Min: {metricObj.min}, Max: {metricObj.max}</span>
             </div>
             <div className="col-md-12">

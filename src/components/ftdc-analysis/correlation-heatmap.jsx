@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import VegaLite from 'react-vega-lite';
 import $ from 'jquery';
+import Actions from 'actions';
 
 class CorrelationHeatMap extends Component {
 
   constructor(props) {
     super(props);
+    this.currentSelectedMetrics = [];
   }
 
   getChartSpec() {
     return {
       'mark': 'rect',
-      'width': 600,
-      'height': 600,
+      "signals": [
+        {
+          "name": "click",
+          "init": null,
+          'streams': [
+            {'type': '*:mouseover', 'expr': 'null'},
+            {'type': '*:mouseout', 'expr': 'null'},
+            {'type': '*:mousedown', 'expr': 'null'}
+          ]
+        }
+      ],
+      'width': 400,
+      'height': 400,
       'encoding': {
         'y': {'field': 'MetricOne', 'type': 'nominal'},
         'x': {'field': 'MetricTwo', 'type': 'nominal'},
@@ -22,21 +35,35 @@ class CorrelationHeatMap extends Component {
         "org": {
           "type": "single",
           "fields": ["MetricOne", "MetricTwo"],
-          "bind": {"input": "text", "externalref": "inputs" }
+          "bind": {"input": "text", "externalref": "inputs", "onchange": "this.trigger('change');", "oninput": "this.trigger('input');", "ontextchanged": "this.trigger('input');" }
         }
       }
     };
   }
 
-  changed() {
-    debugger;
+  monitorSelection() {
+    this.currentSelectedMetrics = [];
+    $("input[externalref='inputs']").each((idx, elem) => {
+        if (elem.value && this.currentSelectedMetrics.indexOf(elem.value) == -1) {
+          // $("#metric_" + elem.value).attr("checked", true);
+          const o = $("#metric_" + elem.value);
+          if (!o.is(":checked")) {
+            o.trigger("click");
+          }
+          // this.currentSelectedMetrics.push(elem.value)
+        }
+    });
+    $(".vega-bindings").hide();
+    /*
+    if (JSON.stringify(this.currentSelectedMetrics) != JSON.stringify(this.props.selectedMetrics)) {
+      Actions.selectCorrelations(this.currentSelectedMetrics);
+    }
+    */
   }
 
   componentDidMount() {
-    //$(".vega-bindings").hide();
-    $("input[externalref='inputs']").blur(() => {
-      debugger;
-    })
+    $(".vega-bindings").hide();
+    window.setInterval(this.monitorSelection.bind(this), 200);
   }
 
   render() {

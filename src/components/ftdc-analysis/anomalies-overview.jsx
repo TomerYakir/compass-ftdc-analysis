@@ -15,9 +15,9 @@ class AnomaliesOverview extends Component {
       const metricObj = this.props.metrics[metric];
       return (
         <div key={metric} className="checkbox">
-          <label><input id={`metric_${metricObj.heatMapCode}`}
+          <label><input id={`metric_${metric}`}
             type="checkbox" value={metricObj.checked}
-            onChange={() => { Actions.checkMetric(metric) }}  />{metricObj.heatMapCode} - {metricObj.displayName}</label>
+            onChange={() => { Actions.checkMetric(metric) }}  />{metric} - {metricObj.displayName}</label>
         </div>
       )
     })

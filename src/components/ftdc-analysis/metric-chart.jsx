@@ -11,7 +11,7 @@ class MetricChart extends Component {
     return {
       width: 800,
       height: 65,
-      mark: 'line',
+      mark: 'point',
       encoding: {
         x: {
           field: 'date',
