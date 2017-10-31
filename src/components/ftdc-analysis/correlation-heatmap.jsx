@@ -13,17 +13,6 @@ class CorrelationHeatMap extends Component {
   getChartSpec() {
     return {
       'mark': 'rect',
-      "signals": [
-        {
-          "name": "click",
-          "init": null,
-          'streams': [
-            {'type': '*:mouseover', 'expr': 'null'},
-            {'type': '*:mouseout', 'expr': 'null'},
-            {'type': '*:mousedown', 'expr': 'null'}
-          ]
-        }
-      ],
       'width': 400,
       'height': 400,
       'encoding': {
@@ -32,10 +21,10 @@ class CorrelationHeatMap extends Component {
         'color': {'field': 'Score', 'type': 'quantitative', 'legend': {'orient': 'bottom-left'}}
       },
       "selection": {
-        "org": {
+        "metrics": {
           "type": "single",
           "fields": ["MetricOne", "MetricTwo"],
-          "bind": {"input": "text", "externalref": "inputs", "onchange": "this.trigger('change');", "oninput": "this.trigger('input');", "ontextchanged": "this.trigger('input');" }
+          "bind": {"input": "text", "externalref": "inputs" }
         }
       }
     };
@@ -66,6 +55,10 @@ class CorrelationHeatMap extends Component {
     window.setInterval(this.monitorSelection.bind(this), 200);
   }
 
+  doSomething() {
+    debugger;
+  }
+
   render() {
     const spec = this.getChartSpec();
     const data = {
@@ -77,7 +70,7 @@ class CorrelationHeatMap extends Component {
         <div className="panel-body">
           <small>Click on the tile to show the correlated metrics</small>
           <div className="row">
-            <VegaLite data={data} spec={spec} />
+            <VegaLite data={data} spec={spec} onSignalClick={this.doSomething} />
           </div>
         </div>
       </div>

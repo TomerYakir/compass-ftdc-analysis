@@ -1,12 +1,10 @@
 import Reflux from 'reflux';
 import Actions from 'actions';
 import StateMixin from 'reflux-state-mixin';
-import assert from 'assert';
 import { deactivate } from '../index';
 
 const FTDCAnalysisStore = Reflux.createStore({
   mixins: [StateMixin.store],
-
   listenables: Actions,
   data: {},
   appRegistry: null,
@@ -75,7 +73,6 @@ const FTDCAnalysisStore = Reflux.createStore({
 
   checkMetric(metric) {
     this.data.metrics[metric].checked = !this.data.metrics[metric].checked
-    console.log("checked: " + this.data.metrics[metric].checked);
     this.setState(this.data);
     this.trigger(this.state);
   },

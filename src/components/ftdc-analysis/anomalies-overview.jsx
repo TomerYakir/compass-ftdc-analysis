@@ -17,7 +17,7 @@ class AnomaliesOverview extends Component {
         <div key={metric} className="checkbox">
           <label><input id={`metric_${metric}`}
             type="checkbox" value={metricObj.checked}
-            onChange={() => { Actions.checkMetric(metric) }}  />{metric} - {metricObj.displayName}</label>
+            onChange={() => { Actions.checkMetric(metric) }}/>{metric} - {metricObj.displayName}</label>
         </div>
       )
     })

@@ -9,7 +9,7 @@ class MetricChart extends Component {
 
   getChartSpec() {
     return {
-      width: 800,
+      width: 750,
       height: 65,
       mark: 'point',
       encoding: {
