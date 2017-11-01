@@ -13,7 +13,8 @@ const FTDCAnalysisStore = Reflux.createStore({
   INIT_STATE: {
     "metrics": {},
     "correlations": [],
-    "selectedMetrics": []
+    "selectedMetrics": [],
+    "metricsProcessed": 0
   },
 
   refresh() {
@@ -181,7 +182,8 @@ const FTDCAnalysisStore = Reflux.createStore({
         {"MetricOne": "B", "MetricTwo": "D", "Score": 0.3},
         {"MetricOne": "C", "MetricTwo": "D", "Score": 0.9},
       ],
-      "selectedMetrics": []
+      "selectedMetrics": [],
+      "metricsProcessed": 984
     };
   }
 });

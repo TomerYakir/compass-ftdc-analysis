@@ -26,7 +26,10 @@ class AnomaliesOverview extends Component {
   render() {
     return (
       <div className="panel panel-default">
-        <div className="panel-heading"><span className="label label-warning">{Object.keys(this.props.metrics).length} anomalies detected</span></div>
+        <div className="panel-heading">
+          <span className="label label-info">{this.props.metricsProcessed} metrics processed</span>
+          <span>   </span>
+          <span className="label label-warning">{Object.keys(this.props.metrics).length} anomalies detected</span></div>
         <div className="panel-body">
           <small>Check metrics to show as graph</small>
           { this.getMetricAnomalies() }
