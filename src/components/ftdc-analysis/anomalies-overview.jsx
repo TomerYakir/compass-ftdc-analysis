@@ -14,7 +14,7 @@ class AnomaliesOverview extends Component {
     return Object.keys(this.props.metrics).map((metric) => {
       const metricObj = this.props.metrics[metric];
       return (
-        <div key={metric} className="checkbox">
+        <div key={metric} className="checkbox col-md-4">
           <label><input id={`metric_${metric}`}
             type="checkbox" value={metricObj.checked}
             onChange={() => { Actions.checkMetric(metric) }}/>{metric} - {metricObj.displayName}</label>
@@ -34,7 +34,9 @@ class AnomaliesOverview extends Component {
           <span className="label label-warning">{Object.keys(this.props.metrics).length} anomalies detected</span></div>
         <div className="panel-body">
           <small>Check metrics to show as graph</small>
+          <div className="col-md-12">
           { this.getMetricAnomalies() }
+          </div>
         </div>
       </div>
     );

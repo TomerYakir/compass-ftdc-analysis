@@ -16,7 +16,7 @@ class AnomaliesCharts extends Component {
       if (metricObj.checked) {
         return (
           <div key={metric} className="row" >
-            <div className="col-md-12">
+            <div className="col-md-9">
               <span><strong>{metricObj.fullName}</strong></span>
               <span className={classnames("pull-right","label","label-info")}>Mean: {metricObj.mean}, Min: {metricObj.min}, Max: {metricObj.max}</span>
             </div>

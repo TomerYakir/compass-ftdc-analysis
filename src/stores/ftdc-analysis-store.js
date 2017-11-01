@@ -8,7 +8,7 @@ const FTDCAnalysisStore = Reflux.createStore({
   listenables: Actions,
   data: {},
   appRegistry: null,
-  mockup: true,
+  mockup: false,
   compass: false,
   INIT_STATE: {
     "metrics": {},
@@ -18,10 +18,13 @@ const FTDCAnalysisStore = Reflux.createStore({
   },
 
   refresh() {
-    // this.loadData();
-    this.data = this.getMockProps();
-    this.setState(this.data);
-    this.trigger(this.state);
+    if (this.mockup) {
+      this.data = this.getMockProps();
+      this.setState(this.data);
+      this.trigger(this.state);
+    } else {
+      this.loadData();
+    }
   },
 
   onActivated(appRegistry) {
@@ -38,8 +41,6 @@ const FTDCAnalysisStore = Reflux.createStore({
     this.loadData = this.loadData.bind(this);
     this.refresh = this.refresh.bind(this);
     this.selectCorrelations = this.selectCorrelations.bind(this);
-
-    // TODO - get data from the python server
     return this.INIT_STATE;
   },
 
@@ -53,12 +54,12 @@ const FTDCAnalysisStore = Reflux.createStore({
 
   loadData() {
     console.log('loading data');
-    Promise.all([
-
-    ]).then(() => {
-        console.log('data loaded');
-        this.setState(this.data);
-    });
+    debugger;
+    const processedData = require('json-loader!../data/processedData.json');
+    this.data = processedData;
+    this.data.selectedMetrics = [];
+    this.setState(this.data);
+    this.trigger(this.state);
   },
 
   selectCorrelations(arr) {

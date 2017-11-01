@@ -44,6 +44,7 @@
     "hadron-react-components": "^1.9.1",
     "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
+    "json-loader": "^0.5.7",
     "mongodb-data-service": "^8.2.0",
     "node-loader": "^0.6.0",
     "react": "^15.5.4",
