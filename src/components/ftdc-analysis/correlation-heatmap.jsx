@@ -19,7 +19,7 @@ class CorrelationHeatMap extends Component {
         'y': {'field': 'MetricOne', 'type': 'nominal'},
         'x': {'field': 'MetricTwo', 'type': 'nominal'},
         'color': {'field': 'Score', 'type': 'quantitative', 'legend': {'orient': 'bottom-left'}},
-        "tooltip": {"field": "Score", "type": "quantitative"}
+        "tooltip": {"field": "Tooltip", "type": "ordinal"}
       },
       "selection": {
         "metrics": {
@@ -69,7 +69,7 @@ class CorrelationHeatMap extends Component {
       <div className="panel panel-default">
         <div className="panel-heading">Correlation Map</div>
         <div className="panel-body">
-          <small>Click on the tile to show the correlated metrics</small>
+          <small>Click on the tile to show the correlated metrics. Bright tiles indicate a high correlation level.</small>
           <div className="row">
             <VegaLite data={data} spec={spec} onSignalClick={this.doSomething} />
           </div>

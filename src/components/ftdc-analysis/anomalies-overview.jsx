@@ -27,6 +27,8 @@ class AnomaliesOverview extends Component {
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
+          <button className="btn btn-info btn-xs" onClick={Actions.refresh}>Analyze FTDC</button>
+          <span>   </span>
           <span className="label label-info">{this.props.metricsProcessed} metrics processed</span>
           <span>   </span>
           <span className="label label-warning">{Object.keys(this.props.metrics).length} anomalies detected</span></div>

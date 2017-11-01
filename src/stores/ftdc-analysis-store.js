@@ -18,7 +18,10 @@ const FTDCAnalysisStore = Reflux.createStore({
   },
 
   refresh() {
-    this.loadData();
+    // this.loadData();
+    this.data = this.getMockProps();
+    this.setState(this.data);
+    this.trigger(this.state);
   },
 
   onActivated(appRegistry) {
@@ -28,14 +31,15 @@ const FTDCAnalysisStore = Reflux.createStore({
   getInitialState() {
     if (this.mockup) {
       // mockup
-      this.data = this.getMockProps();
+      //this.data = this.getMockProps();
+      this.data = this.INIT_STATE;
       return this.data;
     }
     this.loadData = this.loadData.bind(this);
+    this.refresh = this.refresh.bind(this);
     this.selectCorrelations = this.selectCorrelations.bind(this);
-    if (this.compass) {
-        // get data from the python server
-    }
+
+    // TODO - get data from the python server
     return this.INIT_STATE;
   },
 
@@ -87,7 +91,7 @@ const FTDCAnalysisStore = Reflux.createStore({
           "checked": false,
           "mean": 0.3,
           "min": 0,
-          "max": 10,
+          "max": 20,
           "title": "#",
           "values": [
             {"date": new Date(1370001284000),
@@ -175,12 +179,12 @@ const FTDCAnalysisStore = Reflux.createStore({
         }
       },
       "correlations": [
-        {"MetricOne": "A", "MetricTwo": "B", "Score": 0.3},
-        {"MetricOne": "A", "MetricTwo": "C", "Score": 0.7},
-        {"MetricOne": "A", "MetricTwo": "D", "Score": 0.4},
-        {"MetricOne": "B", "MetricTwo": "C", "Score": 0.1},
-        {"MetricOne": "B", "MetricTwo": "D", "Score": 0.3},
-        {"MetricOne": "C", "MetricTwo": "D", "Score": 0.9},
+        {"MetricOne": "A", "MetricTwo": "B", "Score": 0.3, "Tooltip": "server_cache_bytes, inserts_per_sec - 0.3"},
+        {"MetricOne": "A", "MetricTwo": "C", "Score": 0.7, "Tooltip": "server_cache_bytes, inserts_per_sec - 0.3"},
+        {"MetricOne": "A", "MetricTwo": "D", "Score": 0.4, "Tooltip": "server_cache_bytes, inserts_per_sec - 0.3"},
+        {"MetricOne": "B", "MetricTwo": "C", "Score": 0.1, "Tooltip": "server_cache_bytes, inserts_per_sec - 0.3"},
+        {"MetricOne": "B", "MetricTwo": "D", "Score": 0.3, "Tooltip": "server_cache_bytes, inserts_per_sec - 0.3"},
+        {"MetricOne": "C", "MetricTwo": "D", "Score": 0.9, "Tooltip": "server_cache_bytes, inserts_per_sec - 0.3"},
       ],
       "selectedMetrics": [],
       "metricsProcessed": 984

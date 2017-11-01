@@ -20,7 +20,7 @@ class MetricChart extends Component {
             type: 'temporal',
             axis: {
               grid: false,
-              format: '%m/%d %H:%M:%S',
+              format: '%d/%m %H:%M:%S',
               title: '',
               labelAngle: 90,
               tickSize: 0,
