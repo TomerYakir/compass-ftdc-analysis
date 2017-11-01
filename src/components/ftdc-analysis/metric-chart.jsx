@@ -8,6 +8,7 @@ class MetricChart extends Component {
   }
 
   getChartSpec() {
+    const ratio = this.props.mean > 1 ? 1.0 : Math.max(this.props.min / this.props.mean, 1 - (this.props.max / this.props.max))
     return {
       width: 650,
       height: 65,
@@ -31,6 +32,9 @@ class MetricChart extends Component {
           y: {
             field: 'value',
             type: 'quantitative',
+            scale: {
+                domain: [this.props.min * ratio,this.props.mean,this.props.max * (1/ratio)],
+            },
             axis: {
               grid: true,
               ticks: 10,

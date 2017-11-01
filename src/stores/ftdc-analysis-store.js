@@ -54,7 +54,6 @@ const FTDCAnalysisStore = Reflux.createStore({
 
   loadData() {
     console.log('loading data');
-    debugger;
     const processedData = require('json-loader!../data/processedData.json');
     this.data = processedData;
     this.data.selectedMetrics = [];

@@ -18,7 +18,7 @@ class CorrelationHeatMap extends Component {
       'encoding': {
         'y': {'field': 'MetricOne', 'type': 'nominal'},
         'x': {'field': 'MetricTwo', 'type': 'nominal'},
-        'color': {'field': 'Score', 'type': 'quantitative', 'legend': {'orient': 'bottom-left'}},
+        'color': {'field': 'Score', 'type': 'quantitative', 'legend': {'orient': 'right'}},
         "tooltip": {"field": "Tooltip", "type": "ordinal"}
       },
       "selection": {
