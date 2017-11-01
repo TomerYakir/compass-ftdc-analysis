@@ -12,13 +12,14 @@ class CorrelationHeatMap extends Component {
 
   getChartSpec() {
     return {
-      'mark': 'rect',
       'width': 400,
       'height': 400,
+      'mark': 'rect',
       'encoding': {
         'y': {'field': 'MetricOne', 'type': 'nominal'},
         'x': {'field': 'MetricTwo', 'type': 'nominal'},
-        'color': {'field': 'Score', 'type': 'quantitative', 'legend': {'orient': 'bottom-left'}}
+        'color': {'field': 'Score', 'type': 'quantitative', 'legend': {'orient': 'bottom-left'}},
+        "tooltip": {"field": "Score", "type": "quantitative"}
       },
       "selection": {
         "metrics": {
@@ -33,19 +34,19 @@ class CorrelationHeatMap extends Component {
   monitorSelection() {
     this.currentSelectedMetrics = [];
     $("input[externalref='inputs']").each((idx, elem) => {
-        if (elem.value && this.currentSelectedMetrics.indexOf(elem.value) == -1) {
-          // $("#metric_" + elem.value).attr("checked", true);
-          const o = $("#metric_" + elem.value);
-          if (!o.is(":checked")) {
-            o.trigger("click");
-          }
-          // this.currentSelectedMetrics.push(elem.value)
+      if (elem.value && this.currentSelectedMetrics.indexOf(elem.value) == -1) {
+        // $("#metric_" + elem.value).attr("checked", true);
+        const o = $("#metric_" + elem.value);
+        if (!o.is(":checked")) {
+          o.trigger("click");
         }
+        // this.currentSelectedMetrics.push(elem.value)
+      }
     });
     $(".vega-bindings").hide();
     /*
     if (JSON.stringify(this.currentSelectedMetrics) != JSON.stringify(this.props.selectedMetrics)) {
-      Actions.selectCorrelations(this.currentSelectedMetrics);
+    Actions.selectCorrelations(this.currentSelectedMetrics);
     }
     */
   }
